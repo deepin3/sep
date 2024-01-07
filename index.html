@@ -162,34 +162,7 @@
     </div>
     <script src="app.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    let currentIndex = 0; // Initialize the index of the currently selected item
-
-    // Function to handle arrow key events
-    function handleArrowKey(event) {
-        const items = document.querySelectorAll('.movie-list-item');
-
-        // Remove the 'selected' class from the current item
-        items[currentIndex].classList.remove('selected');
-
-        // Update the index based on the arrow key
-        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-            // Navigate horizontally
-            currentIndex = (event.key === 'ArrowLeft')
-                ? (currentIndex - 1 + items.length) % items.length
-                : (currentIndex + 1) % items.length;
-        } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-            // Scroll vertically (you can add your scrolling logic here)
-            console.log('Scrolling:', event.key);
-        }
-
-        // Add the 'selected' class to the new current item
-        items[currentIndex].classList.add('selected');
-
-        // Display the title of the selected item
-        const title = items[currentIndex].querySelector('.movie-list-item-title').innerText;
-        console.log('Selected Title:', title);
-    }
+document.addEventListener('DOMContentLoaded', function () {
 
     // Function to handle Enter key event
     function handleEnterKey(event) {
@@ -212,11 +185,9 @@
             }
         }
     }
-
-    // Add event listeners for keydown events
-    document.addEventListener('keydown', handleArrowKey);
     document.addEventListener('keydown', handleEnterKey);
-});
+}
+);
     </script>
 </body>
 </html>
