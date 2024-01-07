@@ -162,22 +162,6 @@
     </div>
     <script src="app.js"></script>
     <script>
-    // Function to handle Enter key event
-    function handleEnterKey(event) {
-        if (event.key === 'Enter') {
-            // Simulate a click on the currently selected item
-            const items = document.querySelectorAll('.movie-list-item');
-            const link = items[currentIndex].querySelector('a');
-            if (link) {
-                window.location.href = link.getAttribute('href');
-            }
-        }
-    }
-        
-    document.addEventListener('keydown', handleEnterKey);
-});
-</script>
-    <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Disable mouse events
             document.addEventListener("mousemove", function(e) {
