@@ -161,33 +161,6 @@
         </div>
     </div>
     <script src="app.js"></script>
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
-
-    // Function to handle Enter key event
-    function handleEnterKey(event) {
-        if (event.key === 'Enter') {
-            // Get the selected item
-            const items = document.querySelectorAll('.movie-list-item');
-            const selectedItem = items[currentIndex];
-
-            // Check if the selected item has a link
-            const link = selectedItem.querySelector('a');
-            if (link) {
-                // Open the link when Enter is pressed
-                window.location.href = link.getAttribute('href');
-            } else {
-                // If no link, try to play the video (you can add your video playing logic here)
-                const video = selectedItem.querySelector('video');
-                if (video) {
-                    video.play();
-                }
-            }
-        }
-    }
-    document.addEventListener('keydown', handleEnterKey);
-}
-);
-    </script>
+    
 </body>
 </html>
