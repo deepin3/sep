@@ -162,31 +162,6 @@
     </div>
     <script src="app.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    let currentIndex = 0; // Initialize the index of the currently selected item
-
-    // Function to handle arrow key events
-    function handleArrowKey(event) {
-        const items = document.querySelectorAll('.movie-list-item');
-
-        // Remove the 'selected' class from the current item
-        items[currentIndex].classList.remove('selected');
-
-        // Update the index based on the arrow key
-        if (event.key === 'ArrowUp') {
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-        } else if (event.key === 'ArrowDown') {
-            currentIndex = (currentIndex + 1) % items.length;
-        }
-
-        // Add the 'selected' class to the new current item
-        items[currentIndex].classList.add('selected');
-
-        // Display the title of the selected item
-        const title = items[currentIndex].querySelector('.movie-list-item-title').innerText;
-        console.log('Selected Title:', title);
-    }
-
     // Function to handle Enter key event
     function handleEnterKey(event) {
         if (event.key === 'Enter') {
@@ -198,9 +173,7 @@
             }
         }
     }
-
-    // Add event listeners for keydown events
-    document.addEventListener('keydown', handleArrowKey);
+        
     document.addEventListener('keydown', handleEnterKey);
 });
 </script>
