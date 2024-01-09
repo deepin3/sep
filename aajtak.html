@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaj Tak</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        .video-container iframe{
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;           
+    }
+</style>
 </head>
 <body>
-    <div class="video-container">
-        <iframe id="myVideo" width="853" height="480" src="https://feeds.intoday.in/livetv/ver-3-0/your-video-file-or-streaming-link.mp4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>    
-</body>
+  <div class="video-container">
+  <div class="livetv-tab-body active" id="tabtv1d">
+    <div class="svg-live-tv" style=""><span class="cutply"></span></div><iframe allow="autoplay; fullscreen;" allowfullscreen="" frameborder="0" id="livetv_AT_web" mozallowfullscreen="" scrolling="no" src="https://feeds.intoday.in/livetv/ver-3-0/?id=livetv-at&amp;aud_togle=1&amp;autostart=1&amp;utm_medium=web&amp;utm_source=livetvpage&amp;v=1.5&amp;debug=false&amp;dimlight=1&amp;noads=0&amp;hd=1" webkitallowfullscreen="" width="360" height="203"></iframe></div>
+  </div>
+  </body>
 </html>
