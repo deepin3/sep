@@ -1,26 +1,43 @@
-<html><head>
+<html>
+<head>
     <title>liveTV</title>
     <link rel="stylesheet" href="https://prideeast.vidgyor.pioneerventures.in/newslive/newslive/fluidplayer.min.css" type="text/css">
     <script src="https://prideeast.vidgyor.pioneerventures.in/newslive/newslive/fluidplayer.min.js"></script>
- <script type="text/javascript" src="https://prideeast.vidgyor.pioneerventures.in/newslive/newslive//scripts/hls.min.js"></script><script type="text/javascript" src="https://prideeast.vidgyor.pioneerventures.in/newslive/newslive//scripts/vtt.js"></script></head>
- <body>
-  <div class="fluid_video_wrapper fluid_player_layout_default" id="fluid_video_wrapper_hls-video" style="width: 100%; height: 100%;"><video id="hls-video" playsinline="" webkit-playsinline="" preload="auto" src="blob:https://prideeast.vidgyor.pioneerventures.in/34bc152a-b925-4a9c-b89a-5a141bc07fe8" style="height: 100%; width: 100%; cursor: default;">
-  <source src="https://prideeast.vidgyor.pioneerventures.in/hls1/newslive/index.m3u8" type="application/x-mpegURL">
-  <source src="https://prideeast.vidgyor.pioneerventures.in/hls1/newslive/index.m3u8" title="1080p" type="application/x-mpegURL">
-      <source src="https://prideeast.vidgyor.pioneerventures.in/hls1/newslive/index.m3u8" title="720p" type="application/x-mpegURL">
-      <source src="https://prideeast.vidgyor.pioneerventures.in/hls1/newslive/index.m3u8" title="480p" type="application/x-mpegURL">
-</video>
-  <script>
-  fluidPlayer(
-      'hls-video',
-      {
-          layoutControls: {
-              fillToContainer: true,
-          
-          }	
-      }
-  );
-  </script>
- 
+    <script type="text/javascript" src="https://prideeast.vidgyor.pioneerventures.in/newslive/newslive//scripts/hls.min.js"></script>
+    <script type="text/javascript" src="https://prideeast.vidgyor.pioneerventures.in/newslive/newslive//scripts/vtt.js"></script>
+</head>
+<body>
+    <div class="fluid_video_wrapper fluid_player_layout_default" id="fluid_video_wrapper_hls-video" style="width: 100%; height: 100%;">
+        <video id="hls-video" playsinline webkit-playsinline preload="auto" src="blob:https://prideeast.vidgyor.pioneerventures.in/34bc152a-b925-4a9c-b89a-5a141bc07fe8" style="height: 100%; width: 100%; cursor: default;">
+            <source src="https://prideeast.vidgyor.pioneerventures.in/hls1/newslive/index.m3u8" type="application/x-mpegURL">
+            <source src="https://prideeast.vidgyor.pioneerventures.in/hls1/newslive/index.m3u8" title="1080p" type="application/x-mpegURL">
+        </video>
+    </div>
 
-</body></html>
+    <script>
+        var player = fluidPlayer(
+            'hls-video',
+            {
+                layoutControls: {
+                    fillToContainer: true,
+                }    
+            }
+        );
+
+        // Add an event listener to the player
+        player.on('play', function() {
+            var videoElement = document.getElementById('hls-video');
+            
+            if (videoElement.requestFullscreen) {
+                videoElement.requestFullscreen();
+            } else if (videoElement.mozRequestFullScreen) { // Firefox
+                videoElement.mozRequestFullScreen();
+            } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                videoElement.webkitRequestFullscreen();
+            } else if (videoElement.msRequestFullscreen) { // IE/Edge
+                videoElement.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
