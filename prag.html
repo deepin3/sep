@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRAG NEWS</title   >
+    <title>PRAG NEWS</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
+        body{
+            overflow: hidden;
+            background-color: black;
+        }
+        video {
+            width: 100%;
+            height: 100%;
         }
         .video-container iframe{
             position: absolute;
@@ -20,7 +24,31 @@
 </head>
 <body>
     <div class="video-container">
-        <iframe width="100%" height="500" frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen" src="https://anym3u8player.com/tv/p.php?url=https://hls.pragnews.com/master.m3u8"></iframe>
+        <video id="videoPlayer" autoplay muted playsinline></video>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        const video = document.getElementById('videoPlayer');
+        const videoSrc = 'https://hls.pragnews.com/master.m3u8';
+
+        if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                video.play();
+                // Optionally unmute after it starts playing
+                video.muted = false;
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+            video.addEventListener('loadedmetadata', function() {
+                video.play();
+                // Optionally unmute after it starts playing
+                video.muted = false;
+            });
+        }
+    </script>
 </body>
 </html>
